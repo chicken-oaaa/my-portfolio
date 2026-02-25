@@ -10,7 +10,7 @@ import DoraImg from "../assets/img/Dora.png";
 import diamondImg from "../assets/img/Jewelry.png";
 import ketsuImg from "../assets/img/Ketsu.png";
 import masiroImg from "../assets/img/masiro.png";
-import plantTop from "../assets/img/Plant1.png";
+import plantTop from "../assets/img/plant1.png";
 import popcornImg from "../assets/img/Popcorn.png";
 import portImg1 from "../assets/img/port1.png";
 import portImg2 from "../assets/img/port2.png";

@@ -1,5 +1,5 @@
-import { Link, useParams } from "react-router-dom"; // Linkを追加
-import { PRODUCTS } from "../data/products.js"; // ← これを追加（パスはファイルの場所に合わせてね）
+import { Link, useParams } from "react-router-dom";
+import { PRODUCTS } from "../data/products.js";
 
 export default function ProductDetail() {
   const { id } = useParams(); //URLからどの作品かを取得

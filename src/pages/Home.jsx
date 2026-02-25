@@ -1,29 +1,23 @@
 // Home.jsx の冒頭部分
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { PRODUCTS } from "../data/products.js"; // 作品データを使います
-
-// 画像のインポート（パスはご自身の環境に合わせて調整してください）
 import chickenPopImg from "../assets/img/Chicken-pop.png";
 import sharkImg from "../assets/img/Shark.jpg";
 import shoneImg from "../assets/img/Shone.jpeg";
 import reinaPopImg from "../assets/img/Y-me.png";
+import { PRODUCTS } from "../data/products.js"; // 作品データをインポート
 
 export default function Home() {
-  // スライド（丸い窓）の現在の番号を管理する状態
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // 次の作品へ行く関数
   const nextProduct = () => {
     setCurrentIndex((prev) => (prev + 1) % PRODUCTS.length);
   };
 
-  // 前の作品へ戻る関数
   const prevProduct = () => {
     setCurrentIndex((prev) => (prev - 1 + PRODUCTS.length) % PRODUCTS.length);
   };
 
-  // 現在表示する作品
   const currentProduct = PRODUCTS[currentIndex];
 
   useEffect(() => {
@@ -75,21 +69,17 @@ export default function Home() {
 
   return (
     <main className="home-container" id="home-page">
-      {/* 1. ヒーローセクション：画面いっぱいに表示 */}
       <section
         className="hero-full"
         style={{ backgroundImage: `url(${sharkImg})` }}
       >
         <div className="hero-overlay">
-          {/* PDFのように改行を入れ、フォントクラスを適用 */}
           <h1 className="hero-title-jp">
             しげまつれいなの
             <br />
             ぽーとふぉりお
           </h1>
         </div>
-
-        {/* ヒーローの下側に波の白いラインを入れる */}
         <div className="hero-wave-border">
           <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
             <path
@@ -105,10 +95,7 @@ export default function Home() {
           </svg>
         </div>
       </section>
-
-      {/* 2. 作品紹介セクション：黒背景と丸い窓 */}
       <section className="product-showcase">
-        {/* セクション上部の波 */}
         <div className="wave-top">
           <svg
             data-name="Layer 1"
@@ -126,7 +113,7 @@ export default function Home() {
           <div className="product-title">
             <span>作ったものたち</span>
           </div>
-          {/* 左のボタン*/}
+
           <button className="left-btn" onClick={prevProduct}>
             <iconify-icon
               icon="flowbite:caret-left-solid"
@@ -135,12 +122,10 @@ export default function Home() {
           </button>
 
           <div className="windows-flex">
-            {/* 左の窓：作品のメイン画像 */}
             <div className="window-circle left-window">
               <img src={currentProduct.image} alt={currentProduct.title} />
             </div>
 
-            {/* 右の窓：リンク付き。PDFのように「もっとみる」を配置 */}
             <Link
               to={`/product/${PRODUCTS[(currentIndex + 1) % PRODUCTS.length].id}`}
               className="window-circle right-window"
@@ -165,7 +150,7 @@ export default function Home() {
         <div className="Reina-box">
           <img src={reinaPopImg} alt="飛び出しれいな" />
         </div>
-        {/* ★下の波：確実に Reina-box の直後に置く */}
+
         <div className="wave-bottom">
           <svg
             data-name="Layer 1"
@@ -181,13 +166,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. SNSセクション：黄色背景 */}
       <div className="wave-divider inverted">
         {/* ここにも波のSVGを入れると繋がります */}
       </div>
 
       <section className="sns-section">
-        {/* セクション上部の波（黄色の壁の始まり） */}
         <div className="wave-top">
           <svg
             data-name="Layer 1"

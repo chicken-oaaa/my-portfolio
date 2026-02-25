@@ -1,26 +1,28 @@
+// 画像
 import imgAnimals from "../assets/img/3Danimal.png";
 import imgApple from "../assets/img/3Dapple.png";
 import imgHugu from "../assets/img/3Dhugu.png";
 import imgKuma from "../assets/img/3Dkuma.png";
 import imgMoke from "../assets/img/3Dmoke.png";
-import plantTop from "../assets/img/Plant1.png";
-import planTalkPdf from "../assets/pdf/PlanTalk-1.pdf";
-// 新規追加分のインポート（ファイル名やパスは適宜プロジェクトに合わせて変更してください）
 import ChickenShootingImg1 from "../assets/img/ChickenShooting1.png";
 import ChickenShootingImg2 from "../assets/img/ChickenShooting2.png";
 import DoraImg from "../assets/img/Dora.png";
 import diamondImg from "../assets/img/Jewelry.png";
 import ketsuImg from "../assets/img/Ketsu.png";
 import masiroImg from "../assets/img/masiro.png";
+import plantTop from "../assets/img/Plant1.png";
 import popcornImg from "../assets/img/Popcorn.png";
 import portImg1 from "../assets/img/port1.png";
 import portImg2 from "../assets/img/port2.png";
 import portImg3 from "../assets/img/port3.png";
 import roomLightImg from "../assets/img/roomLighting.jpg";
+import planTalkPdf from "../assets/pdf/PlanTalk-1.pdf";
+// 動画
 import ChickenShootingMovie from "../assets/movie/ChickenShooting1.mov";
 import DoraMovie from "../assets/movie/Dora.mov";
 import diamondMovie from "../assets/movie/Jewelry.mov";
 import popcornMovie from "../assets/movie/Popcorn.mov";
+// pdf
 import portPdf from "../assets/pdf/portfolio.pdf";
 
 export const PRODUCTS = [

@@ -1,5 +1,4 @@
-// src/components/Header.jsx
-import { Link } from "react-router-dom"; // ページ遷移用の部品
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -10,7 +9,6 @@ export default function Header() {
             Reina's Portfolio
           </Link>
 
-          {/* モバイル用トグルボタン */}
           <button
             className="navbar-toggler"
             type="button"

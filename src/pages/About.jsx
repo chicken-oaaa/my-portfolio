@@ -1,8 +1,6 @@
 import hurisode from "../assets/img/hurisode.jpg";
 export default function About() {
   return (
-    // navar-countainer は既存のヘッダーとの兼ね合いで残していますが、
-    // 画面完結にするためクラス名を調整しています
     <div className="about-page-fixed">
       <main className="about-main">
         <div className="gakumasu-layout">
@@ -19,7 +17,7 @@ export default function About() {
               <h1 className="name-main">重松 怜奈</h1>
             </div>
 
-            {/* 下部：自己紹介コンテナ（ここだけ中身が多い場合にスクロールさせる） */}
+            {/* 下部：自己紹介コンテナ */}
             <div className="intro-card">
               <div className="intro-scroll-area">
                 <div className="profile-section">

@@ -32,13 +32,11 @@ export default function Product() {
   return (
     <>
       <main>
-        {/* --- 追加点4: 絞り込みUIの表示 --- */}
         <div className="filter-container">
           <div className="filter-buttons">
             {allTags.map((tag) => (
               <button
                 key={tag}
-                // 現在選ばれているタグに 'active' クラスをつけて色を変えられるようにします
                 className={`filter-btn ${selectedTag === tag ? "active" : ""}`}
                 onClick={() => setSelectedTag(tag)}
               >
@@ -49,7 +47,6 @@ export default function Product() {
         </div>
 
         <div className="gallery">
-          {/* --- 追加点5: PRODUCTS ではなく filteredProducts をマップする --- */}
           {filteredProducts.map((product) => (
             <Link
               to={`/product/${product.id}`}
@@ -68,7 +65,6 @@ export default function Product() {
         </div>
       </main>
 
-      {/* フッターやトップへ戻るボタンもAbout同様に追加 */}
       <a
         href="#"
         className={`back-to-top ${isScrolled ? "visible" : ""}`}

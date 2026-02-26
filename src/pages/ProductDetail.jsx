@@ -60,6 +60,7 @@ export default function ProductDetail() {
           )}
 
           <div className="detail-links">
+            {/* 今までのPDFボタンはそのまま */}
             {product.pdf && (
               <a
                 href={product.pdf}
@@ -70,17 +71,36 @@ export default function ProductDetail() {
                 <iconify-icon icon="mdi:file-pdf-box"></iconify-icon> PDF資料
               </a>
             )}
-            {product.link && (
-              <a
-                href={product.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-action btn-link"
-              >
-                <iconify-icon icon="mdi:external-link"></iconify-icon>{" "}
-                サイトを見る
-              </a>
-            )}
+
+            {/* 追加：links配列をループして、タイプ別にボタンを作る */}
+            {product.links?.map((linkItem, index) => {
+              // タイプによって名前とアイコンを出し分ける設定
+              let btnLabel = "サイトを見る";
+              let btnIcon = "mdi:external-link";
+
+              if (linkItem.type === "presentation") {
+                btnLabel = "企画書・プレゼン資料";
+                btnIcon = "mdi:file-present";
+              } else if (linkItem.type === "game") {
+                btnLabel = "ゲームをプレイする";
+                btnIcon = "mdi:controller";
+              } else if (linkItem.type === "site") {
+                btnLabel = "作品サイトを見る";
+                btnIcon = "mdi:web";
+              }
+
+              return (
+                <a
+                  key={index}
+                  href={linkItem.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`btn-action btn-${linkItem.type}`}
+                >
+                  <iconify-icon icon={btnIcon}></iconify-icon> {btnLabel}
+                </a>
+              );
+            })}
           </div>
         </div>
 

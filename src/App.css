@@ -432,6 +432,18 @@ img {
   color: white;
 }
 
+/* 企画書ボタン：落ち着いたオレンジ系 */
+.btn-presentation {
+  background-color: #f39c12;
+  color: white;
+}
+
+/* ゲームボタン：ワクワクする青・紫系 */
+.btn-game {
+  background-color: #3498db;
+  color: white;
+}
+
 .btn-action:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);

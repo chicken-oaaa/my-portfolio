@@ -1209,3 +1209,131 @@ img {
     grid-template-columns: 1fr; /* 1列に */
   }
 }
+
+/* モバイル対応追加 */
+@media (max-width: 768px) {
+  /* Homeページヒーロー */
+  .hero-full {
+    padding: 80px 5% 0;
+  }
+  .hero-title-jp {
+    font-size: 2rem; /* モバイルで小さく */
+    line-height: 1.2;
+  }
+
+  /* Productショーケース */
+  .windows-flex {
+    height: auto; /* 高さ固定解除 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .left-window,
+  .right-window {
+    position: static; /* 絶対位置解除 */
+    width: 200px !important;
+    height: 200px !important;
+    margin: 10px;
+  }
+  .product-title {
+    font-size: 1.5rem;
+    top: 2rem;
+    left: 2rem;
+  }
+  .right-btn,
+  .left-btn {
+    position: static;
+    margin: 10px;
+  }
+  .Reina-box img {
+    width: 200px;
+  }
+
+  /* SNSセクション */
+  .sns-section {
+    padding: 4rem 1rem;
+  }
+  .sns-inner {
+    gap: 40px; /* ギャップ小さく */
+  }
+  .sns-title {
+    font-size: 2.5rem; /* モバイルで小さく */
+  }
+  .sns-icons {
+    gap: 20px;
+  }
+  .sns-icons a {
+    font-size: 60px; /* アイコン小さく */
+  }
+  .chicken-box {
+    right: -3rem;
+    bottom: -4rem;
+  }
+  .chicken-wrapper img {
+    width: 80px;
+  }
+
+  /* ProductDetail */
+  .detail-container {
+    padding: 20px 10px;
+    gap: 30px;
+  }
+  .detail-title {
+    font-size: 2rem;
+  }
+  .detail-visual {
+    position: static;
+  }
+  .detail-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btn-action {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+
+  /* ギャラリー */
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    padding: 1rem;
+  }
+
+  /* フィルター */
+  .filter-container {
+    padding: 0 10px;
+  }
+  .filter-buttons {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .filter-btn {
+    padding: 4px 12px;
+    font-size: 0.9rem;
+  }
+
+  /* カード */
+  .card img {
+    height: 150px;
+  }
+  .card-info {
+    padding: 10px;
+  }
+  .card-title {
+    font-size: 0.9rem;
+  }
+
+  /* ヘッダー */
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  /* 共通 */
+  h1 {
+    font-size: 1.8rem;
+  }
+  main:not(#home-page) {
+    padding-top: 70px;
+  }
+}

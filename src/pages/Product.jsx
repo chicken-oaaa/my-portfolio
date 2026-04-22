@@ -24,6 +24,15 @@ export default function Product() {
       ? PRODUCTS // 'All' なら全表示
       : PRODUCTS.filter((product) => product.tags?.includes(selectedTag)); // 選んだタグが含まれるものだけ抽出
 
+  // --- 追加点4: フィルタリングされた作品を日付で降順（最新のものから）にソート ---
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    const [yearA, monthA] = a.date.split("/").map(Number);
+    const [yearB, monthB] = b.date.split("/").map(Number);
+    const dateA = new Date(yearA, monthA - 1);
+    const dateB = new Date(yearB, monthB - 1);
+    return dateB - dateA; // 降順（最新のものが先頭）
+  });
+
   const scrollToTop = (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -47,7 +56,7 @@ export default function Product() {
         </div>
 
         <div className="gallery">
-          {filteredProducts.map((product) => (
+          {sortedProducts.map((product) => (
             <Link
               to={`/product/${product.id}`}
               key={product.id}

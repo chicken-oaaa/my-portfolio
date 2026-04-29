@@ -597,7 +597,6 @@ img {
 }
 
 .name-main {
-  font-family: "otomanopee-one", "Otomanopee One", sans-serif !important;
   font-size: 4rem; /* PDFのような存在感のあるサイズ */
   color: #ff8aab;
   line-height: 1.1;
@@ -609,23 +608,23 @@ img {
     -1px -1px 0px rgba(0, 0, 0, 0.1);
 }
 
-/* 自己紹介カード（内側スクロールエリア） */
-.intro-card {
-  flex-grow: 1; /* 残りの高さをすべて使う */
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(5px); /* 少し透けさせておしゃれに */
-  padding: 35px;
-  border-radius: 30px;
-  border: 2px solid #fff;
-  box-shadow: 10px 10px 0px var(--accent-color);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+.font-title-text {
+  font-family: var(--font-title), sans-serif !important;
 }
 
-.intro-scroll-area {
-  overflow-y: auto;
-  padding-right: 15px;
+/* 自己紹介カード（内側スクロールエリア） */
+.intro-card {
+  flex: 1 1 auto; /* 余白に合わせて伸縮 */
+  min-height: 0; /* PC ではみ出さないようにする */
+  overflow-y: auto; /* 縦スクロールを許可 */
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px); /* 少し透けさせておしゃれに */
+  padding: 10px;
+  border-radius: 30px;
+  border: 7px solid #f796a3;
+  box-shadow: 7px 10px 0px var(--accent-color);
+  display: flex;
+  flex-direction: column;
 }
 
 /* 各セクションの装飾 */

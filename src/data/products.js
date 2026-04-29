@@ -17,6 +17,7 @@ import portImg1 from "../assets/img/port1.png";
 import portImg2 from "../assets/img/port2.png";
 import portImg3 from "../assets/img/port3.png";
 import roomLightImg from "../assets/img/roomLighting.jpg";
+import WaoSiteImg from "../assets/img/WaoSite.png";
 
 // 動画
 import ChickenPinballMovie from "../assets/movie/ChickenPinball.mov";
@@ -106,6 +107,12 @@ export const PRODUCTS = [
     date: "2024/09",
     image: imgAnimals,
     tags: ["3DCG", "Game", "Private"],
+    time: "約3ヶ月",
+    tech: ["Blender", "Unity"],
+    role: "企画デザイン、モデリング、ものづくり",
+    video: null,
+    description:
+      "東京ゲームショウ2024に出展したゲームです。面白いインタフェースを使うというテーマで浴槽用ブラシで動物の歯を磨く飼育員体験ができたら面白いんじゃないかと思い、企画しました。個性豊かでかわいい動物を3DCGでも筐体でも制作できていい経験になりました！",
   },
   {
     id: 7,
@@ -230,5 +237,23 @@ export const PRODUCTS = [
     description:
       "ゲームプログラミングの授業で制作したピンボールゲームです。びっくりチキンがフリッパーになっていて、ピンボールを打ち返すときに鳴きます。最高のゲームです。",
     tags: ["Game", "School"],
+  },
+  {
+    id: 15,
+    title: "ワオキツネザル激推しサイト",
+    links: [
+      {
+        type: "site",
+        url: "https://wao-kitsunezaru.vercel.app/",
+      },
+    ],
+    date: "2025/05",
+    time: "約2週間",
+    tech: ["Figma", "html", "CSS"],
+    role: "個人制作(デザイン、Webフロント)",
+    image: WaoSiteImg,
+    description:
+      "webデザインの授業で制作した推しを紹介するサイトです。サイトマップからデザイン、コーディングまで全て自分で行いました。私の愛するワオキツネザルの魅力が伝わるサイトを目指しました！",
+    tags: ["Design", "Web", "School"],
   },
 ];

@@ -7,7 +7,10 @@ import imgMoke from "../assets/img/3Dmoke.png";
 import ChickenPinballImg from "../assets/img/ChickenPinball.png";
 import ChickenShootingImg1 from "../assets/img/ChickenShooting1.png";
 import ChickenShootingImg2 from "../assets/img/ChickenShooting2.png";
+import CoPreImg from "../assets/img/Co-Pre.png";
 import DoraImg from "../assets/img/Dora.png";
+import GestureAudioImg from "../assets/img/GestureAudio.png";
+import GestureAudioHardImg from "../assets/img/GestureAudioHard.png";
 import diamondImg from "../assets/img/Jewelry.png";
 import ketsuImg from "../assets/img/Ketsu.png";
 import masiroImg from "../assets/img/masiro.png";
@@ -16,7 +19,10 @@ import popcornImg from "../assets/img/Popcorn.png";
 import portImg1 from "../assets/img/port1.png";
 import portImg2 from "../assets/img/port2.png";
 import portImg3 from "../assets/img/port3.png";
+import BirthdayPartyImg from "../assets/img/ReinaBirthday.png";
 import roomLightImg from "../assets/img/roomLighting.jpg";
+import SchoolSafeImg from "../assets/img/SchoolSafe.png";
+import SchoolSafeUseImg from "../assets/img/SchoolSafeUse.png";
 import WaoSiteImg from "../assets/img/WaoSite.png";
 
 // 動画
@@ -109,7 +115,7 @@ export const PRODUCTS = [
     tags: ["3DCG", "Game", "Private"],
     time: "約3ヶ月",
     tech: ["Blender", "Unity"],
-    role: "企画デザイン、モデリング、ものづくり",
+    role: "チーム制作(企画デザイン、モデリング、ものづくり)",
     video: null,
     description:
       "東京ゲームショウ2024に出展したゲームです。面白いインタフェースを使うというテーマで浴槽用ブラシで動物の歯を磨く飼育員体験ができたら面白いんじゃないかと思い、企画しました。個性豊かでかわいい動物を3DCGでも筐体でも制作できていい経験になりました！",
@@ -160,7 +166,7 @@ export const PRODUCTS = [
     date: "2025/03",
     time: "2週間",
     tech: ["Figma", "React", "html", "CSS"],
-    role: "UIデザイン、キャラクターデザイン、Webフロント",
+    role: "チーム制作(UIデザイン、キャラクターデザイン、Webフロント)",
     pdf: null,
     links: [
       {
@@ -170,7 +176,7 @@ export const PRODUCTS = [
     ],
     description:
       "SysHach2025に出た時に4人チームで作った植物育成初心者向けのアプリです。FigmaでUIデザインをして、Reactでフロントエンドを実装しました。キャラクター(フクロウモチーフのポポタ)と一緒に水やりや日光の管理ができるアプリで、キャラクターデザインも担当しました。",
-    tags: ["Design", "Web", "Private"],
+    tags: ["Design", "Web", "Private", "hackathon"],
   },
   {
     id: 11,
@@ -223,7 +229,7 @@ export const PRODUCTS = [
     title: "びっくりチキンのお祭りピンボール！",
     image: ChickenPinballImg,
     date: "2026/02",
-    time: "約12時間",
+    time: "約二週間",
     tech: ["Canva", "Blender", "Unity", "C#"],
     role: "個人制作(企画デザイン・モデリング・ゲームプログラミング)",
     video: ChickenPinballMovie,
@@ -235,7 +241,7 @@ export const PRODUCTS = [
       },
     ],
     description:
-      "ゲームプログラミングの授業で制作したピンボールゲームです。びっくりチキンがフリッパーになっていて、ピンボールを打ち返すときに鳴きます。最高のゲームです。",
+      "ゲームプログラミングの授業の最終課題で制作したピンボールゲームです。「お祭り」「1:3」「弾む」をテーマにして制作しました。びっくりチキンがフリッパーになっていて、卵を弾いて敵を倒します。鳴きます。最高のゲームです。",
     tags: ["Game", "School"],
   },
   {
@@ -255,5 +261,76 @@ export const PRODUCTS = [
     description:
       "webデザインの授業で制作した推しを紹介するサイトです。サイトマップからデザイン、コーディングまで全て自分で行いました。私の愛するワオキツネザルの魅力が伝わるサイトを目指しました！",
     tags: ["Design", "Web", "School"],
+  },
+  {
+    id: 16,
+    title: "Gesture Audio",
+    image: GestureAudioImg,
+    gallery: [{ type: "image", src: GestureAudioHardImg }],
+    date: "2025/08",
+    time: "約二週間",
+    tech: ["Figma", "HTML", "CSS", "JavaScript", "canva"],
+    role: "チーム制作(企画デザイン、UIデザイン、Webフロント)",
+    description:
+      "株式会社サポーターズ様主催の【技育CAMP2025】ハッカソン Vol.10にて最優秀賞を受賞したアプリです。全員選考はバラバラの学部2年生四人で集まって参加しました。私はFigmaでUIデザインをして、HTML/ CSS / JavaScriptでフロントエンドを実装しました。今までにない発想やハードとの接続など、挑戦的な内容でとてもいい経験になりました！",
+    tags: ["Design", "Web", "Private", "hackathon"],
+    links: [
+      {
+        type: "presentation",
+        url: "https://www.canva.com/design/DAGvlxQLaRw/8fbZ3A8wx9VI0na9Rp_ppA/view?utm_content=DAGvlxQLaRw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc4934e66f8",
+      },
+      {
+        type: "site",
+        url: "https://www.sysken.net/post/2342/",
+      },
+    ],
+  },
+  {
+    id: 17,
+    title: "学区あんぜんマップ",
+    image: SchoolSafeImg,
+    gallery: [{ type: "image", src: SchoolSafeUseImg }],
+    date: "2025/10",
+    time: "約二週間",
+    tech: ["Figma", "HTML", "CSS", "Canva"],
+    role: "個人制作(企画デザイン、プレゼン資料デザイン)",
+    description:
+      "自転車安全利用５則に関するデジタルコンテンツの企画書を作るという課題で制作しました。私は16歳以下の小中学生をターゲットに、学区の安全を守るというコンセプトのアプリを発案しました。アプリ画面はGeminiで生成し、実際に動かしながら機能性もしっかりと考えました。ポップで可愛くわかりやすく、スライドを見るだけで内容が伝わるようなデザインを心がけました。",
+    tags: ["Design", "School"],
+    links: [
+      {
+        type: "presentation",
+        url: "https://canva.link/u51lngu1ktxbbyz",
+      },
+    ],
+  },
+  {
+    id: 18,
+    title: "Co-Pre",
+    image: CoPreImg,
+    date: "2025/11",
+    time: "約二週間",
+    tech: ["python", "Tkinter", "Canva"],
+    role: "チーム制作(企画デザイン、UIデザイン、プレゼン資料デザイン)",
+    description:
+      "「音」を利用したアプリをAIやAPIを活用しながら作るという課題で、初めてPythonを使ってアプリを作りました。私たちは、音声入力でAIが自動的に議事録を取ってくれたり、プレゼン練習のアドバイスをしてくれるプレゼン支援アプリを作りました。私は企画とUIデザインとプレゼン資料のデザインを担当しました。初めてのPython開発でどうデザインを変えるのか、調べるところから難しかったです。シンプルでわかりやすいUIを心がけました。",
+    tags: ["Design", "School"],
+    links: [
+      {
+        type: "presentation",
+        url: "https://canva.link/0elgh35vd5y31uq",
+      },
+    ],
+  },
+  {
+    id: 19,
+    title: "私の誕生日記念フライヤー",
+    date: "2025/09",
+    time: "約2時間",
+    tech: ["Canva"],
+    role: "個人制作(デザイン)",
+    image: BirthdayPartyImg,
+    description:
+      "20歳の記念すべき誕生日に友達に配るフライヤーを作りました。テーマは「私らしさ大爆発」で、親友に描いてもらった絵を散りばめたり私が宇宙になる様子を表現しました。友人らには大好評で、私もとても気に入っています！",
   },
 ];

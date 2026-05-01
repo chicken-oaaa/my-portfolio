@@ -347,8 +347,9 @@ img {
 .detail-visual {
   flex: 1.2; /* 少し幅を広げる  */
   max-width: 600px;
-  position: sticky; /* PCではスクロールに追従  */
-  top: 100px;
+  /* position: sticky; PCではスクロールに追従  */
+  /* top: 100px; */
+  width: 100%;
 }
 
 .main-visual,
@@ -1081,23 +1082,15 @@ img {
 }
 
 /* レスポンシブ */
-@media (max-width: 991px) {
-  .detail-container {
-    flex-direction: column;
-    padding: 20px;
-  }
-  .detail-visual {
-    max-width: 100%;
-  }
-}
+/* ==========================================
+   レスポンシブデザイン：整理の第一歩
+   ========================================== */
 
-@media (max-width: 576px) {
-  .gallery {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  }
-}
-/* レスポンシブ調整 */
+/* ------------------------------------------
+   1. 【PC/大型タブレット】画面幅 1234px 以下
+   ------------------------------------------ */
 @media (max-width: 1234px) {
+  /* Home: 窓のサイズと間隔を少し小さく調整 */
   .windows {
     gap: 18px;
   }
@@ -1109,18 +1102,8 @@ img {
     width: 170px;
     height: 170px;
   }
-  .product-inner {
-    flex-direction: column;
-  }
-  .sns-inner {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .sns-left .square-photo {
-    width: 220px;
-    height: 220px;
-  }
+
+  /* Home: ヒーロータイトルのサイズを微調整 */
   .hero-title {
     font-size: 2.4rem;
     padding: 8px;
@@ -1130,144 +1113,87 @@ img {
   }
 }
 
-@media (max-width: 576px) {
-  .hero-title {
-    font-size: 1.9rem;
-  }
-  .yme-wrapper img {
-    width: 96px;
-  }
-  .chicken-wrapper img {
-    width: 120px;
-  }
-}
-
-/* スマホ対応 */
+/* ------------------------------------------
+   2. 【iPad Pro/デスクトップ】画面幅 1024px 以下
+   ------------------------------------------ */
 @media (max-width: 1024px) {
+  /* About: 左右の比率を変更して文字情報を読みやすくする */
   .gakumasu-layout {
-    grid-template-columns: 0.8fr 1.2fr; /* 画像を少し細くして情報の幅を確保 */
+    grid-template-columns: 0.8fr 1.2fr;
   }
-
   .right-info-panel {
-    padding: 40px; /* 余白を少し削る */
+    padding: 40px;
   }
-
   .name-main {
-    font-size: 3rem; /* 名前を少し小さく */
-  }
-}
-/* --- ベース：PC版（見開き固定） --- */
-@media (min-width: 769px) {
-  .about-page-fixed {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden; /* PCでは全体スクロール禁止 */
+    font-size: 3rem;
   }
 
-  .gakumasu-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 100vh;
-  }
-
-  .left-hero-image {
-    height: 100vh;
-  }
-
-  .right-info-panel {
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  .intro-scroll-area {
-    overflow-y: auto; /* PCではカードの中だけスクロール */
-    max-height: 100%;
+  /* ProductDetail: 左右配置を維持しつつ余白を調整 */
+  .detail-container {
+    gap: 30px; /* 重なりを防ぐため間隔を少し詰める */
   }
 }
 
-/* --- レスポンシブ：スマホ・タブレット（縦並び・全体スクロール） --- */
-@media (max-width: 768px) {
-  /* html, body 自体の overflow: hidden を打ち消すために
-     !important を使うか、App.jsx側の設定を確認してください。
-  */
-  .about-page-fixed {
-    height: auto;
-    min-height: 100vh;
-    overflow: visible; /* 全体のスクロールを許可 */
-  }
-
-  .gakumasu-layout {
-    display: flex; /* gridよりflexの方が縦並びの制御がしやすい */
+/* ------------------------------------------
+   3. 【中型タブレット】画面幅 991px 以下
+   ------------------------------------------ */
+@media (max-width: 991px) {
+  /* ProductDetail: 左右並びを諦めて「上下並び」に切り替える（重要！） */
+  /* これによりWindows等での画像の重なりが物理的に解消されます */
+  .detail-container {
     flex-direction: column;
-    height: auto;
+    padding: 20px;
   }
 
-  .left-hero-image {
-    width: 100%;
-    height: 50vh; /* 画像を画面の半分に固定 */
-    flex-shrink: 0;
+  /* 画像エリアを横幅いっぱいにする */
+  .detail-visual {
+    max-width: 100%;
+    position: static !important; /* 前回のstickyを完全に解除して重なりを防止 */
   }
 
-  .left-hero-image img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+  /* Home: ショーケースエリアを縦並びの準備 */
+  .product-inner {
+    flex-direction: column;
   }
-
-  .right-info-panel {
-    width: 100%;
-    height: auto; /* 高さ固定を解除 */
-    padding: 40px 20px;
-    background: #fff;
-    overflow: visible;
-  }
-
-  .intro-card {
-    height: auto;
-    overflow: visible;
-    margin-bottom: 40px;
-  }
-
-  .intro-scroll-area {
-    overflow-y: visible; /* カード内スクロールを無効化 */
-    height: auto;
-  }
-
-  .profile-grid {
-    grid-template-columns: 1fr; /* 1列に */
-  }
-  .about-sns-icons {
-    justify-content: center; /* スマホでは中央寄せにする */
-    padding-left: 0; /* 左のパディングをリセット */
-    margin-top: 10px; /* 名前との間に少し隙間を作る */
-  }
-
-  .about-sns-icons iconify-icon {
-    font-size: 35px; /* スマホに合わせて少しサイズダウン */
+  .sns-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }
 
-/* モバイル対応追加 */
+/* --- 次のステップで 768px 以下のスマホ対応を整理します --- */
 @media (max-width: 768px) {
-  /* Homeページヒーロー */
+  /* --- 共通・ヘッダー設定 --- */
+  .navbar-brand {
+    font-size: 1.2rem;
+  } /* ロゴを少し小さく */
+  h1 {
+    font-size: 1.8rem;
+  } /* 見出しサイズをスマホ向けに落とす */
+  main:not(#home-page) {
+    padding-top: 70px;
+  } /* 上部の余白を狭める */
+
+  /* --- Homeページ：ヒーロー・ショーケース --- */
   .hero-full {
     padding: 80px 5% 0;
-  }
+  } /* ヒーローの余白をスマホ用に */
   .hero-title-jp {
-    font-size: 2rem; /* モバイルで小さく */
+    font-size: 2rem;
     line-height: 1.2;
-  }
+  } /* タイトルを折り返しやすく */
 
-  /* Productショーケース */
+  /* 丸い窓の設定：絶対配置を解除して縦に並べる[cite: 2] */
   .windows-flex {
-    height: auto; /* 高さ固定解除 */
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   .left-window,
   .right-window {
-    position: static; /* 絶対位置解除 */
+    position: static; /* 浮いている状態をやめて順番に並べる[cite: 2] */
     width: 200px !important;
     height: 200px !important;
     margin: 10px;
@@ -1281,96 +1207,140 @@ img {
   .left-btn {
     position: static;
     margin: 10px;
-  }
-  .Reina-box img {
-    width: 200px;
-  }
+  } /* ボタンも並列に[cite: 2] */
 
-  /* SNSセクション */
+  /* --- Homeページ：SNSセクション --- */
   .sns-section {
     padding: 4rem 1rem;
   }
   .sns-inner {
-    gap: 40px; /* ギャップ小さく */
-  }
+    gap: 40px;
+    flex-direction: column;
+  } /* 中身を縦に並べる[cite: 2] */
   .sns-title {
-    font-size: 2.5rem; /* モバイルで小さく */
+    font-size: 2.5rem;
   }
-  .sns-icons {
-    gap: 20px;
-  }
-  .sns-icons a {
-    font-size: 60px; /* アイコン小さく */
-  }
+  .sns-icons a iconify-icon {
+    font-size: 60px;
+  } /* アイコンサイズを調整 */
   .chicken-box {
     right: -3rem;
     bottom: -4rem;
-  }
-  .chicken-wrapper img {
-    width: 80px;
-  }
+  } /* チキンの位置微調整[cite: 2] */
 
-  /* ProductDetail */
-  .detail-container {
-    padding: 20px 10px;
-    gap: 30px;
-  }
-  .detail-title {
-    font-size: 2rem;
-  }
-  .detail-visual {
-    position: static;
-  }
-  .detail-links {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .btn-action {
-    padding: 10px 20px;
-    font-size: 0.8rem;
-  }
-
-  /* ギャラリー */
+  /* --- Product一覧（ギャラリー） --- */
   .gallery {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(140px, 1fr)
+    ); /* 2列程度に収める[cite: 2] */
     gap: 15px;
     padding: 1rem;
   }
-
-  /* フィルター */
+  .card img {
+    height: 150px;
+  } /* 画像を少し低くして一覧性を高める[cite: 2] */
   .filter-container {
     padding: 0 10px;
   }
   .filter-buttons {
-    flex-wrap: wrap;
     gap: 8px;
+  } /* フィルターボタンの間隔を詰める[cite: 2] */
+
+  /* --- Product詳細ページ --- */
+  .detail-container {
+    padding: 20px 10px;
+    gap: 20px;
+  } /* 余白をさらに削る[cite: 2] */
+  .detail-title {
+    font-size: 2rem;
   }
-  .filter-btn {
-    padding: 4px 12px;
-    font-size: 0.9rem;
+  .detail-links {
+    flex-direction: column;
+    gap: 10px;
+  } /* ボタンを縦に並べて押しやすく[cite: 2] */
+  .btn-action {
+    width: 100%;
+    justify-content: center;
+  } /* ボタンを横幅いっぱいにする */
+
+  /* --- Aboutページ：学マス風レイアウトの解除 --- */
+  .about-page-fixed {
+    height: auto;
+    overflow: visible;
+  } /* 固定を解除してスクロール可能に[cite: 2] */
+  .gakumasu-layout {
+    display: flex;
+    flex-direction: column;
+  } /* 左右を「上下」に変更[cite: 2] */
+  .left-hero-image {
+    height: 50vh;
+    width: 100%;
+  } /* 画像を上半分に固定[cite: 2] */
+  .right-info-panel {
+    height: auto;
+    overflow: visible;
+    padding: 40px 20px;
+  } /* 情報エリアを下に[cite: 2] */
+  .intro-card {
+    height: auto;
+    overflow: visible;
+  } /* カード内スクロールを廃止[cite: 2] */
+  .profile-grid {
+    grid-template-columns: 1fr;
+  } /* プロフィールを1列に[cite: 2] */
+  .about-sns-icons {
+    justify-content: center;
+    padding-left: 0;
+  } /* SNSを中央へ[cite: 2] */
+}
+@media (max-width: 576px) {
+  /* --- Homeページ：装飾アイテムのサイズ調整 --- */
+  /* キャラクターや吹き出しが画面を圧迫しないようにサイズを落とします */
+  .yme-wrapper img {
+    width: 80px; /* PC版から大幅に縮小してバランス調整 */
   }
 
-  /* カード */
-  .card img {
-    height: 150px;
+  .chicken-wrapper img {
+    width: 100px; /* チキンのサイズをスマホの持ち手に合わせる */
   }
-  .card-info {
-    padding: 10px;
+
+  /* --- Homeページ：ヒーローセクション --- */
+  /* 文字が重ならないよう、さらにフォントサイズを絞ります */
+  .hero-title {
+    font-size: 1.6rem; /* 1.9remからさらに微調整して1行に収まりやすく */
   }
+
+  /* --- Product一覧：カードレイアウト --- */
+  /* 非常に狭い画面でも、作品が2列並ぶように最小幅を上書きします */
+  .gallery {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(150px, 1fr)
+    ); /* 120pxから150pxへ変更 */
+    gap: 12px; /* むぎゅっと感を出すのを防ぐため、少しだけ隙間を広げます */
+    padding: 1rem;
+  }
+
   .card-title {
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* カード内の文字が溢れないよう少し小さく[cite: 2] */
+  }
+  .card img {
+    height: 160px; /* 150pxから120pxへ縮小してバランス調整 */
   }
 
-  /* ヘッダー */
-  .navbar-brand {
-    font-size: 1.2rem;
+  /* --- Product詳細：コンテナのパディング --- */
+  /* 左右の余白を極限まで削り、コンテンツ（画像や文字）の有効幅を広げます */
+  .detail-container {
+    padding: 15px 5px; /* 上下15px、左右5pxでギリギリまで広げる[cite: 2] */
   }
 
-  /* 共通 */
-  h1 {
-    font-size: 1.8rem;
+  .detail-title {
+    font-size: 1.8rem; /* タイトルの主張を抑えて画面内に収める[cite: 2] */
   }
-  main:not(#home-page) {
-    padding-top: 70px;
+
+  /* --- Aboutページ：フォントの最終調整 --- */
+  .name-main {
+    font-size: 2.5rem; /* 名前が画面を突き抜けないように最終調整[cite: 2] */
   }
 }

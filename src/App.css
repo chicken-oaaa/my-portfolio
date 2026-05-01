@@ -543,7 +543,6 @@ img {
   width: 100vw;
   overflow: hidden; /* ページ全体のスクロールを完全に禁止 */
   position: relative;
-  background-color: #fff;
 }
 
 .gakumasu-layout {
@@ -555,8 +554,10 @@ img {
 /* --- 左側：画像エリア --- */
 .left-hero-image {
   width: 100%;
-  height: 100vh;
+  height: fit-content; /* 【重要】中身のコンテンツに合わせた高さにする */
+  max-height: 90vh; /* 念のため、中身が増えすぎた時に画面を突き抜けないよう上限を設定 */
   overflow: hidden;
+  border-radius: 10%;
 }
 
 .left-hero-image img {
@@ -568,11 +569,11 @@ img {
 
 /* --- 右側：情報パネル --- */
 .right-info-panel {
-  padding: 60px;
+  padding: 10px 25px;
   display: flex;
   flex-direction: column;
-  height: 100vh;
   box-sizing: border-box;
+  border-radius: 2%;
   background: linear-gradient(
     135deg,
     #fff 0%,
@@ -584,7 +585,7 @@ img {
 .name-header {
   border-left: 8px solid var(--accent-color);
   padding-left: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   flex-shrink: 0;
 }
 
@@ -611,12 +612,40 @@ img {
 .font-title-text {
   font-family: var(--font-title), sans-serif !important;
 }
+/* --- SNSアイコンの調整 --- */
+
+.about-sns-icons {
+  display: flex; /* アイコンを横並びにする */
+  justify-content: flex-start;
+  gap: 20px; /* アイコン同士の間に20pxの隙間を作る */
+  margin-bottom: 20px; /* 下の自己紹介カードとの間に余白を作る */
+  padding-left: 20px; /* 名前の横線（border-left）の位置と合わせる */
+  width: 100%; /* アイコンの幅に合わせてコンテナの幅を調整 */
+}
+
+.about-sns-icons a {
+  display: flex; /* リンクの範囲をアイコンに合わせる */
+  align-items: center; /* 垂直方向の中央に配置 */
+  transition: transform 0.2s; /* ホバー時の動きを滑らかにする */
+}
+
+/* アイコン自体の設定 */
+.about-sns-icons iconify-icon {
+  font-size: 40px; /* Aboutページのバランスに合わせてサイズを設定 */
+  color: #df6b92; /* 名前のメインカラーと同じピンクにする */
+}
+
+/* マウスを乗せた（ホバー）時の動き */
+.about-sns-icons a:hover {
+  transform: scale(1.1); /* 少しだけ大きくして「押せる」ことを伝える */
+  opacity: 0.8; /* 少し薄くして変化を出す */
+}
 
 /* 自己紹介カード（内側スクロールエリア） */
 .intro-card {
-  flex: 1 1 auto; /* 余白に合わせて伸縮 */
-  min-height: 0; /* PC ではみ出さないようにする */
-  overflow-y: auto; /* 縦スクロールを許可 */
+  width: 100%; /* 横幅は親要素に合わせる */
+  height: fit-content; /* 【重要】中身のコンテンツに合わせた高さにする */
+  max-height: 60vh; /* 念のため、中身が増えすぎた時に画面を突き抜けないよう上限を設定 */
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(5px); /* 少し透けさせておしゃれに */
   padding: 10px;
@@ -633,7 +662,7 @@ img {
 }
 
 .profile-section h2 {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: var(--accent-color);
   border-bottom: 2px solid var(--accent-color);
   margin-bottom: 15px;
@@ -1206,6 +1235,15 @@ img {
 
   .profile-grid {
     grid-template-columns: 1fr; /* 1列に */
+  }
+  .about-sns-icons {
+    justify-content: center; /* スマホでは中央寄せにする */
+    padding-left: 0; /* 左のパディングをリセット */
+    margin-top: 10px; /* 名前との間に少し隙間を作る */
+  }
+
+  .about-sns-icons iconify-icon {
+    font-size: 35px; /* スマホに合わせて少しサイズダウン */
   }
 }
 

@@ -1184,7 +1184,7 @@ img {
     line-height: 1.2;
   } /* タイトルを折り返しやすく */
 
-  /* 丸い窓の設定：絶対配置を解除して縦に並べる[cite: 2] */
+  /* 丸い窓の設定：絶対配置を解除して縦に並べる */
   .windows-flex {
     height: auto;
     display: flex;
@@ -1193,7 +1193,7 @@ img {
   }
   .left-window,
   .right-window {
-    position: static; /* 浮いている状態をやめて順番に並べる[cite: 2] */
+    position: static; /* 浮いている状態をやめて順番に並べる */
     width: 200px !important;
     height: 200px !important;
     margin: 10px;
@@ -1207,7 +1207,7 @@ img {
   .left-btn {
     position: static;
     margin: 10px;
-  } /* ボタンも並列に[cite: 2] */
+  } /* ボタンも並列に */
 
   /* --- Homeページ：SNSセクション --- */
   .sns-section {
@@ -1216,7 +1216,7 @@ img {
   .sns-inner {
     gap: 40px;
     flex-direction: column;
-  } /* 中身を縦に並べる[cite: 2] */
+  } /* 中身を縦に並べる */
   .sns-title {
     font-size: 2.5rem;
   }
@@ -1226,39 +1226,39 @@ img {
   .chicken-box {
     right: -3rem;
     bottom: -4rem;
-  } /* チキンの位置微調整[cite: 2] */
+  } /* チキンの位置微調整 */
 
   /* --- Product一覧（ギャラリー） --- */
   .gallery {
     grid-template-columns: repeat(
       auto-fit,
       minmax(140px, 1fr)
-    ); /* 2列程度に収める[cite: 2] */
+    ); /* 2列程度に収める */
     gap: 15px;
     padding: 1rem;
   }
   .card img {
     height: 150px;
-  } /* 画像を少し低くして一覧性を高める[cite: 2] */
+  } /* 画像を少し低くして一覧性を高める */
   .filter-container {
     padding: 0 10px;
   }
   .filter-buttons {
     gap: 8px;
-  } /* フィルターボタンの間隔を詰める[cite: 2] */
+  } /* フィルターボタンの間隔を詰める */
 
   /* --- Product詳細ページ --- */
   .detail-container {
     padding: 20px 10px;
     gap: 20px;
-  } /* 余白をさらに削る[cite: 2] */
+  } /* 余白をさらに削る */
   .detail-title {
     font-size: 2rem;
   }
   .detail-links {
     flex-direction: column;
     gap: 10px;
-  } /* ボタンを縦に並べて押しやすく[cite: 2] */
+  } /* ボタンを縦に並べて押しやすく */
   .btn-action {
     width: 100%;
     justify-content: center;
@@ -1268,31 +1268,31 @@ img {
   .about-page-fixed {
     height: auto;
     overflow: visible;
-  } /* 固定を解除してスクロール可能に[cite: 2] */
+  } /* 固定を解除してスクロール可能に*/
   .gakumasu-layout {
     display: flex;
     flex-direction: column;
-  } /* 左右を「上下」に変更[cite: 2] */
+  } /* 左右を「上下」に変更 */
   .left-hero-image {
     height: 50vh;
     width: 100%;
-  } /* 画像を上半分に固定[cite: 2] */
+  } /* 画像を上半分に固定 */
   .right-info-panel {
     height: auto;
     overflow: visible;
     padding: 40px 20px;
-  } /* 情報エリアを下に[cite: 2] */
+  } /* 情報エリアを下に */
   .intro-card {
     height: auto;
     overflow: visible;
-  } /* カード内スクロールを廃止[cite: 2] */
+  } /* カード内スクロールを廃止 */
   .profile-grid {
     grid-template-columns: 1fr;
-  } /* プロフィールを1列に[cite: 2] */
+  } /* プロフィールを1列に */
   .about-sns-icons {
     justify-content: center;
     padding-left: 0;
-  } /* SNSを中央へ[cite: 2] */
+  } /* SNSを中央へ */
 }
 @media (max-width: 576px) {
   /* --- Homeページ：装飾アイテムのサイズ調整 --- */
@@ -1323,7 +1323,7 @@ img {
   }
 
   .card-title {
-    font-size: 0.85rem; /* カード内の文字が溢れないよう少し小さく[cite: 2] */
+    font-size: 0.85rem; /* カード内の文字が溢れないよう少し小さく*/
   }
   .card img {
     height: 160px; /* 150pxから120pxへ縮小してバランス調整 */
@@ -1332,15 +1332,15 @@ img {
   /* --- Product詳細：コンテナのパディング --- */
   /* 左右の余白を極限まで削り、コンテンツ（画像や文字）の有効幅を広げます */
   .detail-container {
-    padding: 15px 5px; /* 上下15px、左右5pxでギリギリまで広げる[cite: 2] */
+    padding: 15px 5px; /* 上下15px、左右5pxでギリギリまで広げる */
   }
 
   .detail-title {
-    font-size: 1.8rem; /* タイトルの主張を抑えて画面内に収める[cite: 2] */
+    font-size: 1.8rem; /* タイトルの主張を抑えて画面内に収める */
   }
 
   /* --- Aboutページ：フォントの最終調整 --- */
   .name-main {
-    font-size: 2.5rem; /* 名前が画面を突き抜けないように最終調整[cite: 2] */
+    font-size: 2.5rem; /* 名前が画面を突き抜けないように最終調整 */
   }
 }

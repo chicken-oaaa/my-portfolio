@@ -23,11 +23,59 @@ body {
   font-size: 16px; /* 基本サイズを固定 */
 }
 
+html,
+body {
+  /* 
+    【追加点】
+    画面全体の「横揺れ」と、それによる「バウンス（戻り現象）」を根本から防ぎます。
+    body だけでなく html タグにも指定するのがスマホでは効果的です。
+  */
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
 /* --- Home画面 共通設定 --- */
 .home-container {
   /* ヘッダーに被らないように調整（必要に応じて） */
   padding-top: 0;
+  margin: 0 !important;
   overflow-x: hidden;
+  width: 100%;
+
+  /* 
+    【追加点】
+    1. スクロールスナップの親としての設定です。
+    2. y軸（縦方向）に対して、スナップを強制（mandatory）させます。
+    これにより、中途半端な位置で止まろうとする「引っかかり」を
+    ブラウザが強制的に次のセクションへ運ぶ力に変えます。
+  */
+  scroll-snap-type: y mandatory;
+  height: 100vh; /* 画面の高さに固定してスナップの基準を作ります */
+  overflow-y: scroll; /* コンテナ自体をスクロール可能にします */
+
+  /* iOSでのスクロールを滑らかにするおまじない */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* App.css：各セクション（ヒーロー、ショーケース、SNS）への設定 */
+#home-page .hero-full,
+#home-page .product-showcase,
+#home-page .sns-section {
+  /* 
+    【追加点】
+    各セクションの先頭（start）を、画面の先頭にピタッと合わせる設定です。
+  */
+  scroll-snap-align: start;
+
+  /* 
+    【追加点】
+    スナップを安定させるため、各セクションの最低の高さを
+    画面いっぱいに設定します。
+  */
+  min-height: 100vh;
+
+  position: relative;
 }
 
 /* 1. ヒーローセクションを完全に画面いっぱいに */
@@ -68,6 +116,7 @@ body {
   width: 100%;
   line-height: 0;
   z-index: 100 !important; /* 一番手前に持ってくる */
+  pointer-events: none; /* 波のSVGがクリックの邪魔をしないように */
 }
 
 #home-page .hero-wave-border svg {
@@ -169,10 +218,11 @@ main {
   /* max-width: 1200px; */
   /* margin: 0 auto; */
   /* box-sizing: border-box; */
-  padding: 0 !important; /* Header分のpaddingを一旦無視して全画面にする */
-  max-width: 100% !important;
-  margin: 0 !important;
+  display: block; /* レイアウトを単純化して計算を軽くします */
+  width: 100%;
+  overflow: visible; /* main自体は中身を隠さない設定にします */
 }
+
 main:not(#home-page) {
   /* Home以外のページでコンテンツがヘッダーに潜り込まないようにします */
   padding-top: 80px !important;
@@ -815,6 +865,7 @@ img {
   width: 100%;
   line-height: 0;
   z-index: 3; /* 写真(z-index: 2)より上に設定して足を隠す */
+  pointer-events: none;
 }
 
 .wave-top svg,
@@ -853,7 +904,8 @@ img {
 }
 /* 作品プレビューセクション */
 .product-showcase {
-  height: 700px;
+  min-height: 100vh; /* height: 700px; から変更 */
+  height: auto; /* 高さを中身に合わせて自動で伸びるようにします */
   /* 1. 画像のパスを指定（ファイル名やパスは実際の環境に合わせてください） */
   background-image: url("./assets/img/Pro-BG.png");
 
@@ -873,8 +925,10 @@ img {
   border-top: 6px solid #ffffff;
   border-bottom: 6px solid #ffffff;
   z-index: 5; /* 黄色いセクションより数字を小さくする */
+  display: flex; /* 縦並びを制御するために追加 */
   flex-direction: column;
   align-items: center;
+  overflow: hidden; /* これで横スクロールの発生を防ぐ */
 }
 .product-inner {
   display: flex;

@@ -63,7 +63,7 @@ export default function Home() {
       window.removeEventListener("scroll", onScroll);
       backToTopButton &&
         backToTopButton.removeEventListener("click", onBackClick);
-      fadeInObserver && fadeInObserver.disconnect();
+      if (fadeInObserver) fadeInObserver.disconnect();
     };
   }, []);
 

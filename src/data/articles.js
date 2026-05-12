@@ -1,5 +1,6 @@
 // 記事のデータを管理する配列です
 import gamemakersImg from "../assets/img/gamemakers.jpg";
+import GestureAudioImg from "../assets/img/GestureAudio.png";
 import xtrendImg from "../assets/img/Xtrend.jpg";
 
 export const ARTICLES = [
@@ -18,5 +19,13 @@ export const ARTICLES = [
     date: "2024.09.28", // 掲載日に合わせて調整してください
     url: "https://xtrend.nikkei.com/atcl/contents/18/01045/00122/",
     tags: ["TGS", "Game"],
+  },
+  {
+    id: 3,
+    title: "【技育CAMP2025】ハッカソン Vol.10で最優秀賞をいただきました！",
+    image: GestureAudioImg,
+    date: "2025.08.10",
+    url: "https://www.sysken.net/post/2342/",
+    tags: ["Hackathon", "Design", "Web"],
   },
 ];

@@ -115,10 +115,7 @@ export default function Home() {
           </div>
 
           <button className="left-btn" onClick={prevProduct}>
-            <iconify-icon
-              icon="flowbite:caret-left-solid"
-              width="8rem"
-            ></iconify-icon>
+            <iconify-icon icon="flowbite:caret-left-solid"></iconify-icon>
           </button>
 
           <div className="windows-flex">
@@ -140,10 +137,7 @@ export default function Home() {
 
           {/* 右のボタン */}
           <button className="right-btn" onClick={nextProduct}>
-            <iconify-icon
-              icon="flowbite:caret-right-solid"
-              width="8rem"
-            ></iconify-icon>
+            <iconify-icon icon="flowbite:caret-right-solid"></iconify-icon>
           </button>
         </div>
         {/* 飛び出しれいな */}

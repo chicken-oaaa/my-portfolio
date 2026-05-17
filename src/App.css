@@ -167,14 +167,20 @@ body {
 /* ピンクの三角形矢印ボタン */
 .right-btn,
 .left-btn {
-  color: #f796a3 !important;
-  font-size: 3rem !important;
+  color: #f796a3;
   position: relative;
   top: 10rem;
   background: none;
   border: none;
   cursor: pointer;
   z-index: 20;
+}
+
+/* アイコン自体のサイズをここでコントロール */
+.right-btn iconify-icon,
+.left-btn iconify-icon {
+  font-size: 8rem; /* PC版では元の 8rem 相当の大きさに */
+  transition: transform 0.2s;
 }
 
 .next-btn:hover {
@@ -999,7 +1005,7 @@ img {
 
 .product-title {
   position: absolute;
-  top: 4rem; /* 位置は調整してください */
+  top: 6rem; /* 位置は調整してください */
   left: 3rem;
   background-color: #f796a3; /* アクセントカラーのピンク */
   color: white;
@@ -1238,31 +1244,88 @@ img {
     line-height: 1.2;
   } /* タイトルを折り返しやすく */
 
-  /* 丸い窓の設定：絶対配置を解除して縦に並べる */
+  /* 1. クラス名を .left-circle から .left-window に修正！ */
+  #home-page .left-window {
+    /* vw(横幅基準)だと縦長の時に小さくなりすぎるので、pxやremがオススメです */
+    width: 350px !important;
+    height: 350px !important;
+    border-width: 6px !important;
+    /* 位置の調整 */
+    position: relative !important; /* 絶対配置を解除して並べやすく */
+    left: 7vw !important;
+    top: 30vh !important;
+    margin: 0 auto 20px !important; /* 中央寄せにして下に余白 */
+  }
+
+  /* 2. 右側の窓（もっとみる）も調整 */
+  #home-page .right-window {
+    width: 250px !important;
+    height: 250px !important;
+    border-width: 6px !important;
+    position: relative !important;
+    top: -30vh !important;
+    right: 20vw !important;
+    margin: 0 auto !important; /* 中央寄せ */
+  }
+
+  /* 3. 親要素の flex 設定を確認 */
   .windows-flex {
-    height: auto;
+    display: flex !important;
+    flex-direction: column !important; /* 縦に並べる */
+    align-items: center !important;
+    height: auto !important;
+  }
+
+  .windows-container {
+    width: 100vw !important; /* 横幅を画面いっぱいに */
+    position: relative; /* ボタンの基準点になる */
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
   }
-  .left-window,
-  .right-window {
-    position: static; /* 浮いている状態をやめて順番に並べる */
-    width: 200px !important;
-    height: 200px !important;
-    margin: 10px;
+
+  /* 丸の中の文字サイズも調整 */
+  .more-text {
+    font-size: 1.2rem !important;
   }
   .product-title {
-    font-size: 1.5rem;
-    top: 2rem;
-    left: 2rem;
+    position: absolute;
+    top: 20%; /* 位置は調整してください */
+    left: 50%;
+    background-color: #f796a3; /* アクセントカラーのピンク */
+    color: white;
+    border-radius: 25px;
+    font-family: "otomanopee-one", "Otomanopee One", sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    transform: rotate(10deg); /* 少し傾けるとおしゃれ！ */
+    box-shadow: 3px 3px 0px rgba(255, 255, 255, 0.2);
+    z-index: 10;
   }
-  .right-btn,
+  /* Step 2で追加：スマホでのボタンサイズ調整 */
+  /* 左ボタン：画面の左端に寄せる */
   .left-btn {
-    position: static;
-    margin: 10px;
-  } /* ボタンも並列に */
+    left: 10px !important;
+  }
 
+  /* 2. ボタンを「絶対配置」で画面の端に貼り付ける */
+  .left-btn,
+  .right-btn {
+    position: absolute !important; /* 窓の位置に左右されず、containerの端に配置 */
+    top: 100% !important;
+    transform: translateY(-50%) !important; /* 完全に真ん中に合わせる */
+    z-index: 100 !important; /* 窓よりも絶対手前に持ってくる */
+    background: none !important;
+  }
+  /* 右ボタン：画面の右端に寄せる */
+  .right-btn {
+    right: 10px !important;
+  }
+
+  .right-btn iconify-icon,
+  .left-btn iconify-icon {
+    font-size: 6rem; /* スマホでは半分のサイズに！ */
+  }
   /* --- Homeページ：SNSセクション --- */
   .sns-section {
     padding: 4rem 1rem;

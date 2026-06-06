@@ -67,21 +67,19 @@ body {
     各セクションの先頭（start）を、画面の先頭にピタッと合わせる設定です。
   */
   scroll-snap-align: start;
-
   /* 
     【追加点】
     スナップを安定させるため、各セクションの最低の高さを
     画面いっぱいに設定します。
   */
-  min-height: 100vh;
-
+  height: 100vh;
+  overflow: hidden !important;
   position: relative;
 }
 
 /* 1. ヒーローセクションを完全に画面いっぱいに */
 #home-page .hero-full {
   width: 100vw !important;
-  height: 100vh !important;
   /* background-position を強制的に 20% (上寄り) に固定します */
   background-position: center 90% !important;
   background-size: cover !important;
@@ -1021,8 +1019,8 @@ img {
 
 .Reina-box {
   position: absolute;
-  right: 0; /* お手本の右下位置に */
-  bottom: -6rem;
+  right: -5rem; /* お手本の右下位置に */
+  bottom: -7rem;
   rotate: -15deg; /* 斜めに回転させる */
   display: flex;
   flex-direction: column;
@@ -1030,29 +1028,32 @@ img {
   z-index: 2;
 }
 .Reina-box img {
-  width: 330px !important;
-  height: auto !important;
+  width: 70%;
+  height: auto;
 }
 
 /* SNSセクション */
 
 /* 1. 外側の枠（フレーム）のサイズアップ */
 #home-page .shone-frame {
-  width: 500px !important; /* お好みのサイズに大きくしてください */
-  height: 500px !important;
-  border-radius: 40px !important; /* 角丸を少し大きく */
+  width: 40vw; /* 画面横幅の40%の大きさに設定 */
+  /* 高さを自動にして、アスペクト比（縦横比）を 1:1 に強制固定します。これにより、画面がどんな形になっても常に綺麗な正方形を維持します */
+  height: auto !important;
+  aspect-ratio: 1 / 1;
+  border-radius: 40px !important;
   overflow: hidden !important;
-  background-color: transparent !important; /* 青くなるのを防ぐ */
-  box-shadow: 8px 10px 0px rgba(0, 0, 0, 0.25); /* PDF風の白い影 */
+  background-color: transparent !important;
+  box-shadow: 8px 10px 0px rgba(0, 0, 0, 0.25);
   display: block !important;
+  margin: 4rem 1rem;
 }
 
 /* 2. 中の画像の設定（ここが重要！） */
 #home-page .profile-img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important; /* 枠いっぱいに綺麗に収める */
-  display: block !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 枠いっぱいに綺麗に収める */
+  display: block;
 }
 
 /* SNS セクション */
@@ -1067,12 +1068,13 @@ img {
   display: flex;
   align-items: center; /* 上下中央 */
   justify-content: center;
-  gap: 100px; /* ★ここを大きくして間隔を確保 */
+  gap: 2rem;
   position: relative; /* チキンの配置の基準にする */
+  max-height: 70vh !important;
 }
 
 #home-page .sns-title {
-  font-family: "otomanopee-one", "Otomanopee One", sans-serif !important;
+  font-family: "otomanopee-one", "Otomanopee One", sans-serif;
   font-size: 5rem; /* PDFのような存在感のあるサイズ */
   color: white;
   line-height: 1.1;
@@ -1112,11 +1114,12 @@ img {
 /* Chicken-pop と吹き出し */
 #home-page .chicken-box {
   position: absolute;
-  right: -5rem; /* お手本の右下位置に */
-  bottom: -7rem; /* ★マイナスの値にすることで下から生えてる感を出します */
+  right: 0; /* お手本の右下位置に */
+  bottom: 0; /* ★マイナスの値にすることで下から生えてる感を出します */
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 9;
 }
 .chicken-wrapper {
   position: relative;
@@ -1124,8 +1127,10 @@ img {
 }
 /* チキンのサイズを微調整 */
 #home-page .chicken-box img {
-  width: 100px !important;
+  width: 90px !important;
   height: auto !important;
+  display: block;
+  margin-bottom: -6rem;
 }
 
 /* 吹き出しの形を少しお手本寄りに */
@@ -1337,13 +1342,44 @@ img {
   .sns-title {
     font-size: 2.5rem;
   }
+  #home-page .shone-frame {
+    max-width: 400px !important; /* でも350pxよりは大きくしない（デカすぎ防止） */
+    max-height: 400px;
+    margin: 0 auto !important;
+  }
   .sns-icons a iconify-icon {
-    font-size: 60px;
+    font-size: 50%;
   } /* アイコンサイズを調整 */
   .chicken-box {
     right: -3rem;
     bottom: -4rem;
   } /* チキンの位置微調整 */
+
+  #home-page .chicken-box img {
+    margin-bottom: -10rem; /* チキンの位置を微調整 */
+    width: 60px;
+    height: auto;
+  }
+
+  #home-page .sns-title {
+    font-size: 2.5rem;
+  }
+  #home-page .shone-frame {
+    /* 【超重要】スマホサイズでは `vw`（画面連動）をやめて、固定値（例: 300px）にします！
+       これで画面がどれだけ縮んでも、画像がこれ以上小さくなるのを防ぎます。 */
+    width: 300px !important;
+
+    /* 前回の正方形キープの魔法を引き継ぎます */
+    height: auto !important;
+    aspect-ratio: 1 / 1;
+
+    /* 【安心設定】もし300pxより小さい超小型スマホで見たときに、
+       画面からはみ出さないように「最大でも画面幅の90%まで」というブレーキをかけます */
+    max-width: 90% !important;
+
+    /* スマホ画面では、画像を中央にポンと配置します */
+    margin: 2rem auto !important;
+  }
 
   /* --- Product一覧（ギャラリー） --- */
   .gallery {

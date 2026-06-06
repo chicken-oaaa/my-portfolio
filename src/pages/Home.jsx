@@ -217,7 +217,7 @@ export default function Home() {
               </a>
               {/* メール */}
               <a
-                href="mailto:x24045xx@aitech.ac.jp?subject=ポートフォリオからのご連絡&body=しげまつれいな様"
+                href="mailto:x24045xx@aitech.ac.jp?subject=ポートフォリオからのご連絡&body=しげまつれいな"
                 target="_blank"
                 rel="noopener noreferrer"
               >

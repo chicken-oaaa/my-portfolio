@@ -1146,6 +1146,14 @@ img {
   transform: translateX(-45px) translateY(55px); /* チキンの左側にずらす */
 }
 
+#home-page .chicken-box .bubble a {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* 押しやすいようにリンクの範囲を広げる */
+  height: 100%; /* 押しやすいようにリンクの範囲を広げる */
+  text-decoration: none; /* 念のためリンクの下線を消す */
+}
 /* レスポンシブ */
 /* ==========================================
    レスポンシブデザイン：整理の第一歩
@@ -1343,9 +1351,9 @@ img {
     font-size: 2.5rem;
   }
   #home-page .shone-frame {
-    max-width: 400px !important; /* でも350pxよりは大きくしない（デカすぎ防止） */
+    max-width: 400px;
     max-height: 400px;
-    margin: 0 auto !important;
+    margin: 0 auto;
   }
   .sns-icons a iconify-icon {
     font-size: 50%;

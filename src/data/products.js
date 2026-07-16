@@ -14,6 +14,7 @@ import GestureAudioHardImg from "../assets/img/GestureAudioHard.png";
 import diamondImg from "../assets/img/Jewelry.png";
 import ketsuImg from "../assets/img/Ketsu.png";
 import masiroImg from "../assets/img/masiro.png";
+import musibaTirasi from "../assets/img/musiba_tirasi.png";
 import plantTop from "../assets/img/plant1.png";
 import popcornImg from "../assets/img/Popcorn.png";
 import portImg1 from "../assets/img/port1.png";
@@ -112,6 +113,7 @@ export const PRODUCTS = [
     title: "虫歯アニマルズ！",
     date: "2024/09",
     image: imgAnimals,
+    gallery: [{ type: "image", src: musibaTirasi }],
     tags: ["3DCG", "Game", "Private"],
     time: "約3ヶ月",
     tech: ["Blender", "Unity"],
